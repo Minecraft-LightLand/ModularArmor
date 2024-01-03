@@ -1,0 +1,9 @@
+{
+  "attributes": {
+    "modulararmor:armor": 2.0,
+    "modulararmor:durability_base": 325.0
+  },
+  "modifiers": {
+    "modulararmor:water_mending": 1
+  }
+}

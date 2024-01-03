@@ -1,0 +1,10 @@
+{
+  "attributes": {
+    "modulararmor:durability_multiplier": 0.2,
+    "modulararmor:knockback_resistance": 0.1,
+    "modulararmor:toughness": 1.0
+  },
+  "modifiers": {
+    "modulararmor:fire_resistance": 1
+  }
+}

@@ -1,11 +1,16 @@
 package dev.xkmc.modulararmor.init;
 
 import com.tterrag.registrate.providers.ProviderType;
+import dev.xkmc.l2library.base.L2Registrate;
+import dev.xkmc.l2library.serial.config.ConfigTypeEntry;
+import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
+import dev.xkmc.modulararmor.content.config.ArmorAttribute;
+import dev.xkmc.modulararmor.content.config.MaterialData;
 import dev.xkmc.modulararmor.init.data.*;
 import dev.xkmc.modulararmor.init.registrate.MABlocks;
 import dev.xkmc.modulararmor.init.registrate.MAItems;
-import dev.xkmc.l2library.base.L2Registrate;
-import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
+import dev.xkmc.modulararmor.init.registrate.MAModifiers;
+import dev.xkmc.modulararmor.init.registrate.MATypes;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -27,10 +32,15 @@ public class ModularArmor {
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
 
+	public static final ConfigTypeEntry<ArmorAttribute> ATTRIBUTE = new ConfigTypeEntry<>(HANDLER, "attribute", ArmorAttribute.class);
+	public static final ConfigTypeEntry<MaterialData> MATERIAL = new ConfigTypeEntry<>(HANDLER, "material", MaterialData.class);
+
 	public ModularArmor() {
 
 		MABlocks.register();
 		MAItems.register();
+		MATypes.register();
+		MAModifiers.register();
 		MAConfig.init();
 
 		REGISTRATE.addDataGenerator(ProviderType.LANG, MALangData::addTranslations);

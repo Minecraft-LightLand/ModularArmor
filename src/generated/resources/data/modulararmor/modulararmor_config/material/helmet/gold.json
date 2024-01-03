@@ -1,0 +1,9 @@
+{
+  "attributes": {
+    "modulararmor:armor": 2.0,
+    "modulararmor:durability_base": 77.0
+  },
+  "modifiers": {
+    "modulararmor:shiny": 1
+  }
+}
