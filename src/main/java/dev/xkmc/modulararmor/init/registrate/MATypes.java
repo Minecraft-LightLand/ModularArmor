@@ -28,6 +28,7 @@ public class MATypes {
 	public static final RegistryEntry<ArmorPartType> SOLE = regType("sole");
 
 	public static final RegistryEntry<ArmorSpecialAttribute> DURABILITY = regAttr("durability");
+	public static final RegistryEntry<ArmorSpecialAttribute> ENCHANTABILITY = regAttr("enchantability");
 	public static final RegistryEntry<Attribute> DAMAGE_REDUCTION = regAttr("damage_reduction", 0, 10000000, "Damage Reduction");
 
 	private static RegistryEntry<ArmorPartType> regType(String name) {

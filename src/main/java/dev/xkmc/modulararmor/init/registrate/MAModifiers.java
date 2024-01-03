@@ -1,18 +1,20 @@
 package dev.xkmc.modulararmor.init.registrate;
 
 import com.tterrag.registrate.util.entry.RegistryEntry;
+import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import dev.xkmc.modulararmor.content.modifier.ArmorModifier;
+import dev.xkmc.modulararmor.content.modifier.WaterBreathingModifier;
+import dev.xkmc.modulararmor.content.modifier.WaterMendingModifier;
 import dev.xkmc.modulararmor.init.ModularArmor;
 
 public class MAModifiers {
 
-	public static final RegistryEntry<ArmorModifier> GOLD = reg("shiny");
-	public static final RegistryEntry<ArmorModifier> FIRE = reg("fire_resistance");
-	public static final RegistryEntry<ArmorModifier> TURTLE = reg("water_mending");
-	public static final RegistryEntry<ArmorModifier> BREATHING = reg("water_breathing");
+	public static final RegistryEntry<ArmorModifier> GOLD = reg("shiny", ArmorModifier::new);
+	public static final RegistryEntry<WaterMendingModifier> TURTLE = reg("water_mending", WaterMendingModifier::new);
+	public static final RegistryEntry<WaterBreathingModifier> BREATHING = reg("water_breathing", WaterBreathingModifier::new);
 
-	private static RegistryEntry<ArmorModifier> reg(String name) {
-		return ModularArmor.REGISTRATE.simple(name, MATypes.MODIFIER.key(), ArmorModifier::new);
+	private static <T extends ArmorModifier> RegistryEntry<T> reg(String name, NonNullSupplier<T> sup) {
+		return ModularArmor.REGISTRATE.simple(name, MATypes.MODIFIER.key(), sup);
 	}
 
 	public static void register() {

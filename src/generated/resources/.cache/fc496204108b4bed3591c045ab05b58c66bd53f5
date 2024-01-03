@@ -1,4 +1,4 @@
-// 1.20.1	2024-01-03T15:00:17.791598	Modular Armor Config
+// 1.20.1	2024-01-03T19:54:16.336096	Modular Armor Config
 318b319d1153c21c471f84f5f071c8610097aafe data/modulararmor/modulararmor_config/material/boots/copper.json
 a7ee6d0889e545ca2edbd6fca05ae180840e638c data/modulararmor/modulararmor_config/material/boots/diamond.json
 dcc04276352db7eb8c32e65db2f41d64229d8378 data/modulararmor/modulararmor_config/material/boots/gold.json
@@ -28,9 +28,9 @@ b640a52fa421e69f4238be65656c9045d7392a2e data/modulararmor/modulararmor_config/m
 16d6027332191e027386121cdff8330e510c1115 data/modulararmor/modulararmor_config/material/lining/wool.json
 95b11c1ba532bda2b7509e8a70a33a5c7e7f075e data/modulararmor/modulararmor_config/material/mask/turtle.json
 1800075e66b3d1cf8b08a354c31b44634cbc2b03 data/modulararmor/modulararmor_config/material/trim/gold.json
-6bbc1203133b026a3bd1e7785b03c08ecb009955 data/modulararmor/modulararmor_config/material/trim/netherite.json
+dddef8f8016f9319666e0fc740ac5ded844fdb4e data/modulararmor/modulararmor_config/material/trim/netherite.json
 8821acc0719d079c1727dcf3b1ee580ca3929733 data/modulararmor/modulararmor_config/material/vest/chainmail.json
 a8f9841a7573ae5af46777f3bf067e9c6fcc587b data/modulararmor/modulararmor_config/material/vest/leather.json
-1133474c8a4c1b71053f221b0243ef08e2380500 data/modulararmor/modulararmor_config/material/vest/nether_vine.json
+ff6a244b78dcb87b9efdf219a5e1999d09ad04d6 data/modulararmor/modulararmor_config/material/vest/nether_vine.json
 66246305f9453841840e1da4db56ec9d36d0e402 data/modulararmor/modulararmor_config/material/vest/vine.json
 16d6027332191e027386121cdff8330e510c1115 data/modulararmor/modulararmor_config/material/vest/wool.json

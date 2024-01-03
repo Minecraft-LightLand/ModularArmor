@@ -4,7 +4,5 @@
     "modulararmor:knockback_resistance": 0.1,
     "modulararmor:toughness": 1.0
   },
-  "modifiers": {
-    "modulararmor:fire_resistance": 1
-  }
+  "modifiers": {}
 }

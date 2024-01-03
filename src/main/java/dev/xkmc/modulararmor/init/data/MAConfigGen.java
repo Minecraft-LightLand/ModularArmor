@@ -63,14 +63,12 @@ public class MAConfigGen extends ConfigDataProvider {
 		addMat(collector, leather, MATypes.VEST.get(), new MaterialData()
 				.withAttr(DUR_MULT, 1).withAttr(ARMOR, 0.5));
 		addMat(collector, nether_vine, MATypes.VEST.get(), new MaterialData()
-				.withAttr(DUR_MULT, 1).withAttr(ARMOR, 1)
-				.withModifier(MAModifiers.FIRE.get(), 1));
+				.withAttr(DUR_MULT, 1).withAttr(ARMOR, 1));
 		addMat(collector, chain, MATypes.VEST.get(), new MaterialData()
 				.withAttr(DUR_MULT, 2).withAttr(ARMOR, 2));
 
 		addMat(collector, netherite, MATypes.TRIM.get(), new MaterialData()
-				.withAttr(TOUGH, 1).withAttr(DUR_MULT, 0.2).withAttr(KBRES, 0.1)
-				.withModifier(MAModifiers.FIRE.get(), 1));
+				.withAttr(TOUGH, 1).withAttr(DUR_MULT, 0.2).withAttr(KBRES, 0.1));
 
 		addMat(collector, gold, MATypes.TRIM.get(), new MaterialData()
 				.withModifier(MAModifiers.GOLD.get(), 1));
