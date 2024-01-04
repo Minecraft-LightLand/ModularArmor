@@ -1,4 +1,4 @@
-package dev.xkmc.modulararmor.content.attribute;
+package dev.xkmc.modulararmor.content.core;
 
 import dev.xkmc.l2library.base.NamedEntry;
 import dev.xkmc.modulararmor.init.registrate.MATypes;

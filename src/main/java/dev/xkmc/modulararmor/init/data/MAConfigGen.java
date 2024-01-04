@@ -1,11 +1,11 @@
 package dev.xkmc.modulararmor.init.data;
 
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
-import dev.xkmc.modulararmor.content.attribute.ArmorSpecialAttribute;
 import dev.xkmc.modulararmor.content.config.ArmorAttribute;
 import dev.xkmc.modulararmor.content.config.ArmorType;
 import dev.xkmc.modulararmor.content.config.MaterialData;
 import dev.xkmc.modulararmor.content.core.ArmorPartType;
+import dev.xkmc.modulararmor.content.core.ArmorSpecialAttribute;
 import dev.xkmc.modulararmor.init.ModularArmor;
 import dev.xkmc.modulararmor.init.registrate.MAItems;
 import dev.xkmc.modulararmor.init.registrate.MAModifiers;
@@ -31,6 +31,8 @@ public class MAConfigGen extends ConfigDataProvider {
 			MATypes.DURABILITY.get(), AttributeModifier.Operation.ADDITION);
 	public final AttrTypeGen DUR_MULT = AttrTypeGen.of("durability_multiplier",
 			MATypes.DURABILITY.get(), AttributeModifier.Operation.MULTIPLY_BASE);
+	public final AttrTypeGen ENCH = AttrTypeGen.of("enchantability",
+			MATypes.ENCHANTABILITY.get(), AttributeModifier.Operation.ADDITION);
 	public final AttrTypeGen ARMOR = AttrTypeGen.of("armor",
 			Attributes.ARMOR, AttributeModifier.Operation.ADDITION);
 	public final AttrTypeGen TOUGH = AttrTypeGen.of("toughness",
@@ -61,6 +63,8 @@ public class MAConfigGen extends ConfigDataProvider {
 		MatTypeGen gold = MatTypeGen.of("gold");
 		MatTypeGen diamond = MatTypeGen.of("diamond");
 		MatTypeGen netherite = MatTypeGen.of("netherite");
+		MatTypeGen lapis = MatTypeGen.of(Items.LAPIS_BLOCK);
+		MatTypeGen amethyst = MatTypeGen.of(Items.AMETHYST_SHARD);
 
 		collector.add(ModularArmor.ATTRIBUTE, DMG_DEC.id(), DMG_DEC.val);
 
@@ -78,22 +82,21 @@ public class MAConfigGen extends ConfigDataProvider {
 				.withAttr(DUR_MULT, 2).withAttr(ARMOR, 2));
 
 		addMat(collector, netherite, MATypes.TRIM.get(), new MaterialData()
-				.withAttr(TOUGH, 1).withAttr(DUR_MULT, 0.2).withAttr(KBRES, 0.1));
-
+				.withAttr(TOUGH, 1).withAttr(DUR_MULT, 0.2).withAttr(KBRES, 0.1).withAttr(ENCH, 5));
 		addMat(collector, gold, MATypes.TRIM.get(), new MaterialData()
-				.withModifier(MAModifiers.GOLD.get(), 1));
+				.withModifier(MAModifiers.GOLD.get(), 1).withAttr(ENCH, 15));
 
 		addMat(collector, turtle, MATypes.MASK.get(), new MaterialData()
 				.withModifier(MAModifiers.BREATHING.get(), 1));
 
-		addArmor(collector, leather, 5, 1, 3, 2, 1, e -> e);
-		addArmor(collector, copper, 10, 1.5, 5, 3, 1.5, e -> e);
-		addArmor(collector, iron, 15, 2, 6, 5, 2, e -> e);
-		addArmor(collector, turtle, 25, 2, 6, 5, 2,
+		addArmor(collector, leather, 5, 15, 1, 3, 2, 1, e -> e);
+		addArmor(collector, copper, 10, 6, 1.5, 5, 3, 1.5, e -> e);
+		addArmor(collector, iron, 15, 9, 2, 6, 5, 2, e -> e);
+		addArmor(collector, turtle, 25, 9, 2, 6, 5, 2,
 				e -> e.withModifier(MAModifiers.TURTLE.get(), 1));
-		addArmor(collector, gold, 7, 2, 5, 3, 1,
+		addArmor(collector, gold, 7, 25, 2, 5, 3, 1,
 				e -> e.withModifier(MAModifiers.GOLD.get(), 1));
-		addArmor(collector, diamond, 33, 3, 8, 6, 3,
+		addArmor(collector, diamond, 33, 10, 3, 8, 6, 3,
 				e -> e.withAttr(TOUGH, 2));
 
 		collector.add(ModularArmor.TYPE, MAItems.HELMET.getId(), new ArmorType()
@@ -114,12 +117,16 @@ public class MAConfigGen extends ConfigDataProvider {
 
 	}
 
-	private void addArmor(Collector collector, MatTypeGen mat, int dur,
+	private void addArmor(Collector collector, MatTypeGen mat, int dur, int ench,
 						  double helmet, double chestplate, double leggings, double boots, Function<MaterialData, MaterialData> cons) {
-		addMat(collector, mat, MATypes.HELMET.get(), cons.apply(new MaterialData().withAttr(DUR_BASE, dur * 11).withAttr(ARMOR, helmet)));
-		addMat(collector, mat, MATypes.CHESTPLATE.get(), cons.apply(new MaterialData().withAttr(DUR_BASE, dur * 16).withAttr(ARMOR, chestplate)));
-		addMat(collector, mat, MATypes.LEGGINGS.get(), cons.apply(new MaterialData().withAttr(DUR_BASE, dur * 15).withAttr(ARMOR, leggings)));
-		addMat(collector, mat, MATypes.BOOTS.get(), cons.apply(new MaterialData().withAttr(DUR_BASE, dur * 13).withAttr(ARMOR, boots)));
+		addMat(collector, mat, MATypes.HELMET.get(), cons.apply(new MaterialData()
+				.withAttr(DUR_BASE, dur * 11).withAttr(ENCH, ench).withAttr(ARMOR, helmet)));
+		addMat(collector, mat, MATypes.CHESTPLATE.get(), cons.apply(new MaterialData()
+				.withAttr(DUR_BASE, dur * 16).withAttr(ENCH, ench).withAttr(ARMOR, chestplate)));
+		addMat(collector, mat, MATypes.LEGGINGS.get(), cons.apply(new MaterialData()
+				.withAttr(DUR_BASE, dur * 15).withAttr(ENCH, ench).withAttr(ARMOR, leggings)));
+		addMat(collector, mat, MATypes.BOOTS.get(), cons.apply(new MaterialData()
+				.withAttr(DUR_BASE, dur * 13).withAttr(ENCH, ench).withAttr(ARMOR, boots)));
 	}
 
 	private static void addMat(Collector collector, MatTypeGen mat, ArmorPartType type, MaterialData data) {

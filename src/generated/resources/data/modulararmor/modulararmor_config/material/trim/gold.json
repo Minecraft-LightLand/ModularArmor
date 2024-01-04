@@ -1,5 +1,7 @@
 {
-  "attributes": {},
+  "attributes": {
+    "modulararmor:enchantability": 15.0
+  },
   "modifiers": {
     "modulararmor:shiny": 1
   }

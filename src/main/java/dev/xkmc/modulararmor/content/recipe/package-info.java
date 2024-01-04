@@ -1,7 +1,7 @@
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-package dev.xkmc.modulararmor.content.attribute;
+package dev.xkmc.modulararmor.content.recipe;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 

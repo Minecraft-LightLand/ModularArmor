@@ -2,7 +2,7 @@ package dev.xkmc.modulararmor.init.registrate;
 
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import dev.xkmc.l2library.base.L2Registrate;
-import dev.xkmc.modulararmor.content.attribute.ArmorSpecialAttribute;
+import dev.xkmc.modulararmor.content.core.ArmorSpecialAttribute;
 import dev.xkmc.modulararmor.content.core.ArmorPartType;
 import dev.xkmc.modulararmor.content.modifier.ArmorModifier;
 import dev.xkmc.modulararmor.init.ModularArmor;

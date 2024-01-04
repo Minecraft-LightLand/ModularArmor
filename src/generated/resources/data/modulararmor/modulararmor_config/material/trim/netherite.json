@@ -1,6 +1,7 @@
 {
   "attributes": {
     "modulararmor:durability_multiplier": 0.2,
+    "modulararmor:enchantability": 5.0,
     "modulararmor:knockback_resistance": 0.1,
     "modulararmor:toughness": 1.0
   },
