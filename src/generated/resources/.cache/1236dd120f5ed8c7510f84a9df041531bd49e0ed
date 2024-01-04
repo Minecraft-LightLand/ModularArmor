@@ -1,3 +1,11 @@
-// 1.20.1	2024-01-03T14:56:33.33632	Registrate Provider for modulararmor [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (mob_effects)]
-2123b5e633a43f134fa1bdaecb0afce38bf4f49a assets/modulararmor/lang/en_ud.json
-f832c11d5b6d99c92508d61ac8a36a38aef622d7 assets/modulararmor/lang/en_us.json
+// 1.20.1	2024-01-04T11:09:42.958442	Registrate Provider for modulararmor [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud), Tags (mob_effects)]
+47e6a812bd6414abe718d35607b75336a93e8573 assets/modulararmor/lang/en_ud.json
+fc71f09d6e962b87ef718f87cf8256d40f321e1a assets/modulararmor/lang/en_us.json
+f8cec8e901392bca215ad2afb6f84e86ac385741 assets/modulararmor/models/item/modular_boots.json
+f8cec8e901392bca215ad2afb6f84e86ac385741 assets/modulararmor/models/item/modular_chestplate.json
+f8cec8e901392bca215ad2afb6f84e86ac385741 assets/modulararmor/models/item/modular_helmet.json
+f8cec8e901392bca215ad2afb6f84e86ac385741 assets/modulararmor/models/item/modular_leggings.json
+c8a64115eee540a0aef17234da0332ff9146b57c data/forge/tags/items/armors/boots.json
+dda5928ac3c3845b2fa9a5ad7d70790eb67bf26a data/forge/tags/items/armors/chestplates.json
+a48c99a94efc882ba2ec3602402adb89f991b0a3 data/forge/tags/items/armors/helmets.json
+242e4d7bb93977be864d7f5f4dfc93bd81cec075 data/forge/tags/items/armors/leggings.json

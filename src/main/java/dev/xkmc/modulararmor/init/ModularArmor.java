@@ -5,6 +5,7 @@ import dev.xkmc.l2library.base.L2Registrate;
 import dev.xkmc.l2library.serial.config.ConfigTypeEntry;
 import dev.xkmc.l2library.serial.config.PacketHandlerWithConfig;
 import dev.xkmc.modulararmor.content.config.ArmorAttribute;
+import dev.xkmc.modulararmor.content.config.ArmorType;
 import dev.xkmc.modulararmor.content.config.MaterialData;
 import dev.xkmc.modulararmor.init.data.*;
 import dev.xkmc.modulararmor.init.registrate.MABlocks;
@@ -33,6 +34,7 @@ public class ModularArmor {
 	public static final L2Registrate REGISTRATE = new L2Registrate(MODID);
 
 	public static final ConfigTypeEntry<ArmorAttribute> ATTRIBUTE = new ConfigTypeEntry<>(HANDLER, "attribute", ArmorAttribute.class);
+	public static final ConfigTypeEntry<ArmorType> TYPE = new ConfigTypeEntry<>(HANDLER, "type", ArmorType.class);
 	public static final ConfigTypeEntry<MaterialData> MATERIAL = new ConfigTypeEntry<>(HANDLER, "material", MaterialData.class);
 
 	public ModularArmor() {

@@ -1,0 +1,11 @@
+{
+  "optional": [
+    "modulararmor:trim",
+    "modulararmor:decoration"
+  ],
+  "required": [
+    "modulararmor:lining",
+    "modulararmor:vest",
+    "modulararmor:chestplate"
+  ]
+}

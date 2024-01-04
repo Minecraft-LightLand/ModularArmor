@@ -3,9 +3,11 @@ package dev.xkmc.modulararmor.init.data;
 import dev.xkmc.l2library.serial.config.ConfigDataProvider;
 import dev.xkmc.modulararmor.content.attribute.ArmorSpecialAttribute;
 import dev.xkmc.modulararmor.content.config.ArmorAttribute;
+import dev.xkmc.modulararmor.content.config.ArmorType;
 import dev.xkmc.modulararmor.content.config.MaterialData;
 import dev.xkmc.modulararmor.content.core.ArmorPartType;
 import dev.xkmc.modulararmor.init.ModularArmor;
+import dev.xkmc.modulararmor.init.registrate.MAItems;
 import dev.xkmc.modulararmor.init.registrate.MAModifiers;
 import dev.xkmc.modulararmor.init.registrate.MATypes;
 import net.minecraft.data.DataGenerator;
@@ -17,6 +19,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
 
 public class MAConfigGen extends ConfigDataProvider {
@@ -40,6 +44,11 @@ public class MAConfigGen extends ConfigDataProvider {
 
 	@Override
 	public void add(Collector collector) {
+
+		for (var e : AttrTypeGen.LIST) {
+			collector.add(ModularArmor.ATTRIBUTE, e.id(), e.val());
+		}
+
 		MatTypeGen wool = MatTypeGen.of("wool");
 		MatTypeGen leather = MatTypeGen.of(Items.LEATHER);
 		MatTypeGen rabbit = MatTypeGen.of(Items.RABBIT_HIDE);
@@ -53,6 +62,7 @@ public class MAConfigGen extends ConfigDataProvider {
 		MatTypeGen diamond = MatTypeGen.of("diamond");
 		MatTypeGen netherite = MatTypeGen.of("netherite");
 
+		collector.add(ModularArmor.ATTRIBUTE, DMG_DEC.id(), DMG_DEC.val);
 
 		addMat(collector, wool, MATypes.LINING.get(), new MaterialData());
 		addMat(collector, leather, MATypes.LINING.get(), new MaterialData().withAttr(DMG_DEC, 0.15));
@@ -85,6 +95,22 @@ public class MAConfigGen extends ConfigDataProvider {
 				e -> e.withModifier(MAModifiers.GOLD.get(), 1));
 		addArmor(collector, diamond, 33, 3, 8, 6, 3,
 				e -> e.withAttr(TOUGH, 2));
+
+		collector.add(ModularArmor.TYPE, MAItems.HELMET.getId(), new ArmorType()
+				.requires(MATypes.LINING.get(), MATypes.VEST.get(), MATypes.HELMET.get())
+				.optional(MATypes.TRIM.get(), MATypes.DECO.get(), MATypes.MASK.get()));
+
+		collector.add(ModularArmor.TYPE, MAItems.CHESTPLATE.getId(), new ArmorType()
+				.requires(MATypes.LINING.get(), MATypes.VEST.get(), MATypes.CHESTPLATE.get())
+				.optional(MATypes.TRIM.get(), MATypes.DECO.get()));
+
+		collector.add(ModularArmor.TYPE, MAItems.LEGGINGS.getId(), new ArmorType()
+				.requires(MATypes.LINING.get(), MATypes.VEST.get(), MATypes.LEGGINGS.get())
+				.optional(MATypes.TRIM.get(), MATypes.DECO.get()));
+
+		collector.add(ModularArmor.TYPE, MAItems.BOOTS.getId(), new ArmorType()
+				.requires(MATypes.LINING.get(), MATypes.VEST.get(), MATypes.BOOTS.get())
+				.optional(MATypes.TRIM.get(), MATypes.DECO.get(), MATypes.SOLE.get()));
 
 	}
 
@@ -120,18 +146,25 @@ public class MAConfigGen extends ConfigDataProvider {
 
 	public record AttrTypeGen(ResourceLocation id, ArmorAttribute val) {
 
+		private static final List<AttrTypeGen> LIST = new ArrayList<>();
+
+		private static AttrTypeGen rec(AttrTypeGen gen) {
+			LIST.add(gen);
+			return gen;
+		}
+
 		public static AttrTypeGen of(String id, Attribute attr, AttributeModifier.Operation op) {
 			ResourceLocation rl = ForgeRegistries.ATTRIBUTES.getKey(attr);
 			assert rl != null;
-			return new AttrTypeGen(new ResourceLocation(ModularArmor.MODID, id),
-					new ArmorAttribute(rl, op));
+			return rec(new AttrTypeGen(new ResourceLocation(ModularArmor.MODID, id),
+					new ArmorAttribute(rl, op)));
 		}
 
 		public static AttrTypeGen of(String id, ArmorSpecialAttribute attr, AttributeModifier.Operation op) {
 			ResourceLocation rl = MATypes.ATTRIBUTE.get().getKey(attr);
 			assert rl != null;
-			return new AttrTypeGen(new ResourceLocation(ModularArmor.MODID, id),
-					new ArmorAttribute(rl, op));
+			return rec(new AttrTypeGen(new ResourceLocation(ModularArmor.MODID, id),
+					new ArmorAttribute(rl, op)));
 		}
 
 	}

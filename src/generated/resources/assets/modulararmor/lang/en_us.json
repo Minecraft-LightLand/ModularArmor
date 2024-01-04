@@ -1,4 +1,8 @@
 {
   "attribute.name.damage_reduction": "Damage Reduction",
+  "item.modulararmor.modular_boots": "Modular Boots",
+  "item.modulararmor.modular_chestplate": "Modular Chestplate",
+  "item.modulararmor.modular_helmet": "Modular Helmet",
+  "item.modulararmor.modular_leggings": "Modular Leggings",
   "itemGroup.l2library.modulararmor": "Modular Armor"
 }
