@@ -3,6 +3,7 @@ package dev.xkmc.modulararmor.init.registrate;
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateItemModelProvider;
 import com.tterrag.registrate.util.entry.ItemEntry;
+import dev.xkmc.modulararmor.content.core.ArmorPartItem;
 import dev.xkmc.modulararmor.content.core.ModularArmorItem;
 import dev.xkmc.modulararmor.init.ModularArmor;
 import net.minecraft.world.item.ArmorItem;
